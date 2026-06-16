@@ -96,6 +96,13 @@
   }
   .opt-site:hover { border-color: rgba(74,134,220,0.5); box-shadow: 0 1px 0 rgba(255,255,255,.07) inset, 0 26px 48px -22px rgba(0,0,0,.9); }
 
+  .opt-call {
+    background: linear-gradient(180deg, rgba(26,36,56,0.95), rgba(19,27,45,0.95));
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 1px 0 rgba(255,255,255,.05) inset, 0 22px 44px -26px rgba(0,0,0,.85);
+  }
+  .opt-call:hover { border-color: rgba(23,59,110,0.65); box-shadow: 0 1px 0 rgba(255,255,255,.07) inset, 0 26px 48px -22px rgba(0,0,0,.9); }
+
   @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
   .rise { animation: rise .6s var(--ease) both; }
   .r1 { animation-delay: .05s; } .r2 { animation-delay: .14s; } .r3 { animation-delay: .22s; }
@@ -125,7 +132,7 @@
       5.0-Rated · Thumbtack Top Pro
     </span>
     <h1 class="mt-4 text-[28px] font-extrabold leading-tight sm:text-[32px]">
-      Let's <span class="cool-text">connect</span>.
+      <span style="color:#4A86DC;">Let's connect.</span>
     </h1>
     <p class="mx-auto mt-2.5 max-w-xs text-[15px] leading-relaxed text-ink-soft">
       Choose whatever's easiest for you — we'll get right back to you. Free estimates, 7 days a week.
@@ -177,13 +184,20 @@
       <svg class="h-5 w-5 shrink-0 text-ink-mute transition group-hover:translate-x-0.5 group-hover:text-primary-bright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
     </a>
 
-  </nav>
+    <!-- Call -->
+    <a href="tel:+12818273033" class="opt opt-call rise r5 group flex items-center gap-4 rounded-2xl p-4">
+      <span class="opt-icon grid shrink-0 place-items-center rounded-xl"
+            style="background:linear-gradient(180deg,#2A5DA8,#173B6E);box-shadow:0 8px 20px -8px rgba(23,59,110,.75),inset 0 1px 0 rgba(255,255,255,.25);height:3.25rem;width:3.25rem;">
+        <svg class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      </span>
+      <span class="min-w-0 flex-1">
+        <span class="block text-[17px] font-bold text-ink">Call Us</span>
+        <span class="block text-[13.5px] text-ink-mute">Talk to us now at (281) 827-3033</span>
+      </span>
+      <svg class="h-5 w-5 shrink-0 text-ink-mute transition group-hover:translate-x-0.5 group-hover:text-primary-bright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
 
-  <!-- Call fallback -->
-  <a href="tel:+12818273033" class="rise r5 mt-6 inline-flex items-center gap-2 text-[14px] font-semibold text-ink-soft transition hover:text-ink">
-    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-    Prefer to call? <span class="font-extrabold text-ink">(281) 827-3033</span>
-  </a>
+  </nav>
 
   <!-- Footer -->
   <footer class="rise r5 mt-9 text-center text-[12px] leading-relaxed text-ink-mute">
