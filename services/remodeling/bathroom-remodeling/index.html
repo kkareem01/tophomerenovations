@@ -122,7 +122,7 @@
   .strip-bg { background: linear-gradient(90deg, #173B6E, #2A5DA8 55%, #4A86DC); }
 
   /* before/after drag-to-compare slider (see assets/before-after.js) */
-  .ba-slider { position: relative; overflow: hidden; border-radius: 1rem; aspect-ratio: 4 / 3; --pos: 50%; background: #0E1422; border: 1px solid rgba(255,255,255,.08); touch-action: pan-y; }
+  .ba-slider { position: relative; overflow: hidden; border-radius: 1rem; aspect-ratio: 3 / 4; --pos: 50%; background: #0E1422; border: 1px solid rgba(255,255,255,.08); touch-action: pan-y; }
   .ba-img { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; display: block; }
   .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
   .ba-range { position: absolute; inset: 0; height: 100%; width: 100%; margin: 0; padding: 0; cursor: ew-resize; opacity: 0; -webkit-appearance: none; appearance: none; }
@@ -470,11 +470,11 @@
       <p class="mt-4 text-[17px] text-ink-soft">Drag the slider to see the before and after of real bathroom remodels across Lilburn &amp; Gwinnett County.</p>
     </div>
 
-    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div class="mx-auto mt-14 grid max-w-4xl gap-6 sm:grid-cols-2">
 
       <figure class="reveal ba-slider" data-ba>
-        <img class="ba-img ba-after" data-ba-img src="/assets/img/ba-1-after.webp" alt="Bathroom remodel in Lilburn, GA — after" decoding="async" />
-        <img class="ba-img ba-before" data-ba-img src="/assets/img/ba-1-before.webp" alt="The same bathroom before the remodel" decoding="async" />
+        <img class="ba-img ba-after" data-ba-img src="/assets/img/ba-1-after.webp" alt="Finished double-vanity bathroom remodel in Lilburn, GA" decoding="async" />
+        <img class="ba-img ba-before" data-ba-img src="/assets/img/ba-1-before.webp" alt="The same bathroom before the remodel — old vanity removed" decoding="async" />
         <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Drag to compare this bathroom before and after" />
         <div class="ba-divider"></div>
         <div class="ba-handle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></div>
@@ -483,8 +483,8 @@
       </figure>
 
       <figure class="reveal ba-slider" data-ba>
-        <img class="ba-img ba-after" data-ba-img src="/assets/img/ba-2-after.webp" alt="Bathroom remodel in Gwinnett County — after" decoding="async" />
-        <img class="ba-img ba-before" data-ba-img src="/assets/img/ba-2-before.webp" alt="The same bathroom before the remodel" decoding="async" />
+        <img class="ba-img ba-after" data-ba-img src="/assets/img/ba-2-after.webp" alt="Walk-in glass shower bathroom remodel in Gwinnett County" decoding="async" />
+        <img class="ba-img ba-before" data-ba-img src="/assets/img/ba-2-before.webp" alt="The same bathroom before the remodel — dated tub and tile" decoding="async" />
         <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Drag to compare this bathroom before and after" />
         <div class="ba-divider"></div>
         <div class="ba-handle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></div>
@@ -492,15 +492,6 @@
         <span class="ba-tag ba-tag-after">After</span>
       </figure>
 
-      <figure class="reveal ba-slider" data-ba>
-        <img class="ba-img ba-after" data-ba-img src="/assets/img/ba-3-after.webp" alt="Bathroom remodel near Lilburn, GA — after" decoding="async" />
-        <img class="ba-img ba-before" data-ba-img src="/assets/img/ba-3-before.webp" alt="The same bathroom before the remodel" decoding="async" />
-        <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Drag to compare this bathroom before and after" />
-        <div class="ba-divider"></div>
-        <div class="ba-handle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></div>
-        <span class="ba-tag ba-tag-before">Before</span>
-        <span class="ba-tag ba-tag-after">After</span>
-      </figure>
 
     </div>
   </div>
