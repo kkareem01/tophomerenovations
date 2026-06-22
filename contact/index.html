@@ -120,6 +120,10 @@
   #m-services-toggle[aria-expanded="true"] .m-chevron { transform: rotate(180deg); }
 
   .strip-bg { background: linear-gradient(90deg, #173B6E, #2A5DA8 55%, #4A86DC); }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
 </style>
 </head>
 
@@ -356,7 +360,7 @@
     <h2 class="mt-1 text-2xl font-extrabold text-ink sm:text-[26px]">Free Estimate Today</h2>
   </div>
   <div class="mt-5 flex flex-col gap-3">
-    <label class="sr-only" aria-label="Service needed">
+    <label class="block" aria-label="Service needed">
       <span class="sr-only">Service needed</span>
       <select name="service" class="field w-full rounded-xl px-4 py-3.5 text-[15px] font-medium">
         <option value="" selected disabled>Choose Service</option>

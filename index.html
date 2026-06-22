@@ -120,6 +120,10 @@
   #m-services-toggle[aria-expanded="true"] .m-chevron { transform: rotate(180deg); }
 
   .strip-bg { background: linear-gradient(90deg, #173B6E, #2A5DA8 55%, #4A86DC); }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
 </style>
 </head>
 
@@ -362,7 +366,7 @@
     <h2 class="mt-1 text-2xl font-extrabold text-ink sm:text-[26px]">Free Estimate Today</h2>
   </div>
   <div class="mt-5 flex flex-col gap-3">
-    <label class="sr-only" aria-label="Service needed">
+    <label class="block" aria-label="Service needed">
       <span class="sr-only">Service needed</span>
       <select name="service" class="field w-full rounded-xl px-4 py-3.5 text-[15px] font-medium">
         <option value="" selected disabled>Choose Service</option>
@@ -420,37 +424,37 @@
 
     <div class="mt-14 grid gap-5 md:grid-cols-3">
       
-      <figure class="reveal card-light rounded-2xl p-6">
+      <figure class="reveal card-light flex flex-col rounded-2xl p-6">
         <div class="flex items-center justify-between">
           <span class="text-accent">★★★★★</span>
-          <svg class="h-5 w-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.6-.2-2.3H12v4.5h6c-.3 1.4-1 2.6-2.3 3.4v2.8h3.7c2.2-2 3.4-5 3.4-8.4z"/><path fill="#34A853" d="M12 23c3.1 0 5.7-1 7.6-2.8l-3.7-2.8c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v2.9C3.7 20.5 7.5 23 12 23z"/><path fill="#FBBC05" d="M5.6 13.8c-.2-.7-.4-1.4-.4-2.3s.1-1.6.4-2.3V6.3H1.8C1 7.9.5 9.7.5 11.5s.5 3.6 1.3 5.2l3.8-2.9z"/><path fill="#EA4335" d="M12 4.5c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1 15.1 0 12 0 7.5 0 3.7 2.5 1.8 6.3l3.8 2.9C6.5 6.5 9 4.5 12 4.5z"/></svg>
+          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full" title="Verified review" aria-hidden="true" style="background:#2A5DA8"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" style="height:.82rem;width:.82rem"><path d="M20 6L9 17l-5-5"/></svg></span>
         </div>
         <blockquote class="mt-4 text-[15px] leading-relaxed text-slate-600">"Omar did a great job replacing my bathroom vanity lights. And once he finished that, it took him only six minutes to measure and install a wall clock. I&#39;m already planning to work with him again on flooring."</blockquote>
-        <figcaption class="mt-5 flex items-center gap-3">
+        <figcaption class="flex items-center gap-3" style="margin-top:auto;padding-top:1.25rem">
           <span class="flex h-10 w-10 items-center justify-center rounded-full text-sm font-extrabold bg-primary/12 text-primary">MN</span>
           <span><span class="block text-sm font-bold text-slate-900">Marvin N.</span><span class="block text-[12px] text-slate-500">Verified Thumbtack Review</span></span>
         </figcaption>
       </figure>
       
-      <figure class="reveal card-light rounded-2xl p-6">
+      <figure class="reveal card-light flex flex-col rounded-2xl p-6">
         <div class="flex items-center justify-between">
           <span class="text-accent">★★★★★</span>
-          <svg class="h-5 w-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.6-.2-2.3H12v4.5h6c-.3 1.4-1 2.6-2.3 3.4v2.8h3.7c2.2-2 3.4-5 3.4-8.4z"/><path fill="#34A853" d="M12 23c3.1 0 5.7-1 7.6-2.8l-3.7-2.8c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v2.9C3.7 20.5 7.5 23 12 23z"/><path fill="#FBBC05" d="M5.6 13.8c-.2-.7-.4-1.4-.4-2.3s.1-1.6.4-2.3V6.3H1.8C1 7.9.5 9.7.5 11.5s.5 3.6 1.3 5.2l3.8-2.9z"/><path fill="#EA4335" d="M12 4.5c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1 15.1 0 12 0 7.5 0 3.7 2.5 1.8 6.3l3.8 2.9C6.5 6.5 9 4.5 12 4.5z"/></svg>
+          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full" title="Verified review" aria-hidden="true" style="background:#2A5DA8"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" style="height:.82rem;width:.82rem"><path d="M20 6L9 17l-5-5"/></svg></span>
         </div>
         <blockquote class="mt-4 text-[15px] leading-relaxed text-slate-600">"Omar was beyond helpful. He responded to my inquiry quickly and got to my repair the same day — extremely professional. My dishwasher had come loose and I didn&#39;t know how to reattach it to the cabinet. Omar secured it better than the day it was installed. I&#39;ll definitely book him again."</blockquote>
-        <figcaption class="mt-5 flex items-center gap-3">
+        <figcaption class="flex items-center gap-3" style="margin-top:auto;padding-top:1.25rem">
           <span class="flex h-10 w-10 items-center justify-center rounded-full text-sm font-extrabold bg-accent/12 text-accent">EJ</span>
           <span><span class="block text-sm font-bold text-slate-900">Erin J.</span><span class="block text-[12px] text-slate-500">Verified Thumbtack Review</span></span>
         </figcaption>
       </figure>
       
-      <figure class="reveal card-light rounded-2xl p-6">
+      <figure class="reveal card-light flex flex-col rounded-2xl p-6">
         <div class="flex items-center justify-between">
           <span class="text-accent">★★★★★</span>
-          <svg class="h-5 w-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.6-.2-2.3H12v4.5h6c-.3 1.4-1 2.6-2.3 3.4v2.8h3.7c2.2-2 3.4-5 3.4-8.4z"/><path fill="#34A853" d="M12 23c3.1 0 5.7-1 7.6-2.8l-3.7-2.8c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v2.9C3.7 20.5 7.5 23 12 23z"/><path fill="#FBBC05" d="M5.6 13.8c-.2-.7-.4-1.4-.4-2.3s.1-1.6.4-2.3V6.3H1.8C1 7.9.5 9.7.5 11.5s.5 3.6 1.3 5.2l3.8-2.9z"/><path fill="#EA4335" d="M12 4.5c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1 15.1 0 12 0 7.5 0 3.7 2.5 1.8 6.3l3.8 2.9C6.5 6.5 9 4.5 12 4.5z"/></svg>
+          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full" title="Verified review" aria-hidden="true" style="background:#2A5DA8"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" style="height:.82rem;width:.82rem"><path d="M20 6L9 17l-5-5"/></svg></span>
         </div>
         <blockquote class="mt-4 text-[15px] leading-relaxed text-slate-600">"Omar and his team delivered on my project. My client was panicking about finding a reliable handyman before a listing went live — the first-floor wall was painted pink and there were cracks throughout the home. Omar repainted it, painted every wall on the first floor for a reasonable price, then handled the cracks and patchwork across the next two floors. If you want a handyman who delivers, Omar is your guy."</blockquote>
-        <figcaption class="mt-5 flex items-center gap-3">
+        <figcaption class="flex items-center gap-3" style="margin-top:auto;padding-top:1.25rem">
           <span class="flex h-10 w-10 items-center justify-center rounded-full text-sm font-extrabold bg-primary/12 text-primary">WM</span>
           <span><span class="block text-sm font-bold text-slate-900">Wayne M.</span><span class="block text-[12px] text-slate-500">Verified Thumbtack Review</span></span>
         </figcaption>
@@ -615,7 +619,7 @@
     <h2 class="mt-1 text-2xl font-extrabold text-ink sm:text-[26px]">Free Estimate Today</h2>
   </div>
   <div class="mt-5 flex flex-col gap-3">
-    <label class="sr-only" aria-label="Service needed">
+    <label class="block" aria-label="Service needed">
       <span class="sr-only">Service needed</span>
       <select name="service" class="field w-full rounded-xl px-4 py-3.5 text-[15px] font-medium">
         <option value="" selected disabled>Choose Service</option>
