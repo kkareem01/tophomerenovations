@@ -120,6 +120,19 @@
   #m-services-toggle[aria-expanded="true"] .m-chevron { transform: rotate(180deg); }
 
   .strip-bg { background: linear-gradient(90deg, #173B6E, #2A5DA8 55%, #4A86DC); }
+
+  /* before/after drag-to-compare slider (see assets/before-after.js) */
+  .ba-slider { position: relative; overflow: hidden; border-radius: 1rem; aspect-ratio: 4 / 3; --pos: 50%; background: #0E1422; border: 1px solid rgba(255,255,255,.08); touch-action: pan-y; }
+  .ba-img { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; display: block; }
+  .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .ba-range { position: absolute; inset: 0; height: 100%; width: 100%; margin: 0; padding: 0; cursor: ew-resize; opacity: 0; -webkit-appearance: none; appearance: none; }
+  .ba-divider { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; box-shadow: 0 0 6px rgba(0,0,0,.45); pointer-events: none; }
+  .ba-handle { position: absolute; top: 50%; left: var(--pos); display: flex; height: 40px; width: 40px; transform: translate(-50%, -50%); align-items: center; justify-content: center; border-radius: 9999px; background: #fff; color: #173B6E; box-shadow: 0 4px 14px rgba(0,0,0,.4); pointer-events: none; }
+  .ba-handle svg { height: 18px; width: 18px; }
+  .ba-tag { position: absolute; bottom: .75rem; padding: .22rem .6rem; border-radius: 9999px; font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: #fff; background: rgba(10,14,24,.72); pointer-events: none; }
+  .ba-tag-before { left: .75rem; }
+  .ba-tag-after { right: .75rem; }
+  .ba-range:focus-visible ~ .ba-handle { box-shadow: 0 0 0 3px rgba(74,134,220,.95), 0 4px 14px rgba(0,0,0,.4); }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
     .reveal { opacity: 1 !important; transform: none !important; }
@@ -326,7 +339,9 @@
 
   <div class="mx-auto grid max-w-7xl gap-7 px-4 py-8 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:gap-10 lg:py-20">
     <div class="max-w-2xl">
-      <div class="reveal flex flex-nowrap items-center gap-2 sm:flex-wrap sm:gap-2.5">
+      <div class="reveal flex flex-wrap items-center gap-2 sm:gap-2.5">
+
+        <span class="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[11px] font-bold sm:px-3 sm:text-[12px]" style="background:rgba(249,99,2,.15);border:1px solid rgba(249,99,2,.42);color:#FF8534">★ Bathroom Remodels — Our Specialty</span>
 
         <span class="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-white/12 bg-white/8 px-2.5 py-1.5 text-[11px] font-bold text-ink sm:px-3 sm:text-[12px]">★★★★★ 5.0 on Thumbtack</span>
 
@@ -338,7 +353,7 @@
         <span class="block text-[2rem] sm:text-[3.6rem]">Top-Rated <span class="cool-text">Handyman &amp; Home Repair</span> in Lilburn</span>
       </h1>
 
-      <p class="reveal d3 mt-3 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:mt-5 sm:text-lg">One trusted local crew for painting, drywall, tile, electrical, flooring, and full remodels — done right the first time, with upfront pricing.</p>
+      <p class="reveal d3 mt-3 max-w-xl text-[15px] leading-relaxed text-ink-soft sm:mt-5 sm:text-lg">Bathroom remodels are what we do best — and we handle the whole punch list too: painting, drywall, tile, electrical, and flooring. Done right the first time, with upfront pricing.</p>
 
       <ul class="reveal d4 mt-4 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:flex-wrap sm:gap-3">
 
@@ -465,6 +480,56 @@
 </section>
 
 <!-- ============ BEFORE / AFTER GALLERY (dark) ============ -->
+<!-- Reveals only once real before/after photos are present (assets/img/ba-N-before.webp + ba-N-after.webp). See assets/before-after.js. -->
+<section class="relative overflow-hidden py-20 sm:py-24" data-ba-section hidden>
+  <div class="glow-cool absolute -right-44 top-10 h-[28rem] w-[28rem] opacity-50"></div>
+  <div class="glow-warm absolute -left-40 bottom-0 h-[26rem] w-[26rem] opacity-40"></div>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <p class="text-[13px] font-bold uppercase tracking-[.18em] text-accent-bright">Bathroom Remodels — Our Specialty</p>
+      <h2 class="mt-3 text-3xl font-extrabold text-ink sm:text-[2.6rem] sm:leading-[1.1]">See the transformation</h2>
+      <p class="mt-4 text-[17px] text-ink-soft">Real bathrooms we remodeled across Lilburn &amp; Gwinnett County. Drag the slider to reveal the before and after.</p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+      <figure class="reveal ba-slider" data-ba>
+        <img class="ba-img ba-after" data-ba-img src="/assets/img/ba-1-after.webp" alt="Bathroom remodel in Lilburn, GA — after" decoding="async" />
+        <img class="ba-img ba-before" data-ba-img src="/assets/img/ba-1-before.webp" alt="The same bathroom before the remodel" decoding="async" />
+        <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Drag to compare this bathroom before and after" />
+        <div class="ba-divider"></div>
+        <div class="ba-handle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></div>
+        <span class="ba-tag ba-tag-before">Before</span>
+        <span class="ba-tag ba-tag-after">After</span>
+      </figure>
+
+      <figure class="reveal ba-slider" data-ba>
+        <img class="ba-img ba-after" data-ba-img src="/assets/img/ba-2-after.webp" alt="Bathroom remodel in Gwinnett County — after" decoding="async" />
+        <img class="ba-img ba-before" data-ba-img src="/assets/img/ba-2-before.webp" alt="The same bathroom before the remodel" decoding="async" />
+        <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Drag to compare this bathroom before and after" />
+        <div class="ba-divider"></div>
+        <div class="ba-handle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></div>
+        <span class="ba-tag ba-tag-before">Before</span>
+        <span class="ba-tag ba-tag-after">After</span>
+      </figure>
+
+      <figure class="reveal ba-slider" data-ba>
+        <img class="ba-img ba-after" data-ba-img src="/assets/img/ba-3-after.webp" alt="Bathroom remodel near Lilburn, GA — after" decoding="async" />
+        <img class="ba-img ba-before" data-ba-img src="/assets/img/ba-3-before.webp" alt="The same bathroom before the remodel" decoding="async" />
+        <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Drag to compare this bathroom before and after" />
+        <div class="ba-divider"></div>
+        <div class="ba-handle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></div>
+        <span class="ba-tag ba-tag-before">Before</span>
+        <span class="ba-tag ba-tag-after">After</span>
+      </figure>
+
+    </div>
+
+    <div class="reveal mt-12 text-center">
+      <a href="#quote" class="btn btn-accent inline-block rounded-full px-8 py-4 text-[15px] font-extrabold text-white">Start My Bathroom Remodel</a>
+    </div>
+  </div>
+</section>
 
 
 <!-- ============ TRUST #2 — differentiators (dark) ============ -->
@@ -512,7 +577,16 @@
     </div>
 
     <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      
+
+      <article class="reveal card-light card-hover overflow-hidden rounded-2xl">
+        <a href="/services/remodeling" class="ph relative block aspect-[16/11]"><img src="/assets/img/remodeling.webp" alt="Bathroom remodeling by Top Home Renovations in Lilburn" loading="lazy" decoding="async" class="h-full w-full object-cover" /><span class="rounded-full px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wide text-white" style="position:absolute;top:.7rem;left:.7rem;background:#F96302">Our specialty</span></a>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-slate-900">Bathroom Remodels &amp; Renovations</h3>
+          <p class="mt-2 text-[14.5px] leading-relaxed text-slate-600">The work we love most — full bathroom remodels with tile, vanities, lighting &amp; fixtures, plus outdoor living and whole-home improvements.</p>
+          <a href="/services/remodeling" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary transition-all hover:gap-2.5">Explore this service →</a>
+        </div>
+      </article>
+
       <article class="reveal card-light card-hover overflow-hidden rounded-2xl">
         <a href="/services/painting" class="ph block aspect-[16/11]"><img src="/assets/img/interior-painting.webp" alt="Painting services by Top Home Renovations" loading="lazy" decoding="async" class="h-full w-full object-cover" /></a>
         <div class="p-6">
@@ -555,15 +629,6 @@
           <h3 class="text-xl font-bold text-slate-900">Cleaning &amp; Gutters</h3>
           <p class="mt-2 text-[14.5px] leading-relaxed text-slate-600">Property cleaning and gutter clearing that protect your home — clearing debris before it causes water damage.</p>
           <a href="/services/cleaning-gutters" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary transition-all hover:gap-2.5">Explore this service →</a>
-        </div>
-      </article>
-      
-      <article class="reveal card-light card-hover overflow-hidden rounded-2xl">
-        <a href="/services/remodeling" class="ph block aspect-[16/11]"><img src="/assets/img/pergola.webp" alt="Remodeling &amp; Renovations services by Top Home Renovations" loading="lazy" decoding="async" class="h-full w-full object-cover" /></a>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-slate-900">Remodeling &amp; Renovations</h3>
-          <p class="mt-2 text-[14.5px] leading-relaxed text-slate-600">Bigger projects, same care — bathroom remodels, outdoor living spaces, and full-home improvements done right.</p>
-          <a href="/services/remodeling" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary transition-all hover:gap-2.5">Explore this service →</a>
         </div>
       </article>
       
@@ -854,6 +919,7 @@
 </script>
 <script>window.HIKMON_NOTIFY = { site: "tophomerenovations" };</script>
 <script src="/assets/lead-form.js"></script>
+<script src="/assets/before-after.js" defer></script>
 </body>
 </html>
 
