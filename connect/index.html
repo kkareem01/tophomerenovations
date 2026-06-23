@@ -18,31 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          bg: '#0A0E18',
-          'bg-elev': '#0E1422',
-          surface: '#131B2D',
-          'surface-2': '#1A2438',
-          ink: '#F4F7FB',
-          'ink-soft': '#A9B4C6',
-          'ink-mute': '#6E7B92',
-          primary: { DEFAULT: '#2A5DA8', bright: '#4A86DC', deep: '#173B6E' },
-          accent: { DEFAULT: '#F96302', bright: '#FF8534', deep: '#C24A00' },
-          whatsapp: { DEFAULT: '#25D366', deep: '#128C7E' },
-        },
-        fontFamily: {
-          display: ["Sora, system-ui, sans-serif"],
-          body: ["Inter, system-ui, sans-serif"],
-        },
-      },
-    },
-  };
-</script>
+<link rel="stylesheet" href="/assets/tw.css" />
 <style>
   :root {
     --ease: cubic-bezier(.2,.8,.2,1);
@@ -107,7 +83,11 @@
   .rise { animation: rise .6s var(--ease) both; }
   .r1 { animation-delay: .05s; } .r2 { animation-delay: .14s; } .r3 { animation-delay: .22s; }
   .r4 { animation-delay: .30s; } .r5 { animation-delay: .40s; }
-  @media (prefers-reduced-motion: reduce) { .rise { animation: none; } .opt:hover { transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .rise { animation: none; } .opt:hover { transform: none; }
+  }
 </style>
 </head>
 
